@@ -39,3 +39,11 @@ Route::get('admin/deposit/view', 'AdminDepositController@show')->name('admin-dep
 Route::get('admin/deposit/edit/{id}', 'AdminDepositController@edit')->name('admin-deposit-edit');
 Route::post('admin/deposit/edit/{id}', 'AdminDepositController@update')->name('form-admin-deposit-edit');
 Route::get('admin/deposit/delete/{id}', 'AdminDepositController@destroy')->name('admin-deposit-delete');
+
+Route::get('/admin','AdminController@index');
+Route::get('/admin/login',['as' => 'admin.login','uses' => 'AuthAdmin\LoginController@showLoginForm']);
+Route::post('/admin/login',['uses' => 'AuthAdmin\LoginController@login']);
+Route::get('/admin/logout',['as' => 'admin.logout','uses' => 'AuthAdmin\LoginController@logout']);
+
+//Route::group(['prefix' => 'admin', 'middleware' => ['role:admin']], function() {
+ //тут твои пути остальные

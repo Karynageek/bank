@@ -48,8 +48,9 @@ class AdminUserController extends Controller {
     }
 
     public function update($id, UserRequest $request) {
+        
         $user = User::find($id);
-        $user->name = $request->input('name');
+        $user->name = $request->input('name');       
         $user->email = $request->input('email');
         $user->save();
 

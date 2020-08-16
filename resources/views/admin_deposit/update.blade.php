@@ -12,19 +12,19 @@
             <div class="login-form">
 
                 <form action="{{route('form-admin-deposit-edit', $deposit->id)}}" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    @csrf
                     <p>Date start</p>
-                    <input type="text" name="created_at" placeholder="" required="" value="{{$deposit->created_at}}">
+                    <input type="text" name="created_at" required="" value="{{$deposit->created_at}}">
                     
                     <p>Date finish</p>
-                    <input type="text" @error('finished_at') is-invalid @enderror" name="finished_at" placeholder="" required="" value="{{$deposit->finished_at}}">
+                    <input type="text" @error('finished_at') is-invalid @enderror" name="finished_at" required="" value="{{$deposit->finished_at}}">
                     @error('finished_at')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                     <p>Sum deposit</p>
-                    <input type="text" @error('sum') is-invalid @enderror" name="sum" placeholder="" required="" value="{{$deposit->sum}}">
+                    <input type="number" @error('sum') is-invalid @enderror" name="sum" placeholder="" required="" value="{{$deposit->sum}}">
                     @error('sum')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
