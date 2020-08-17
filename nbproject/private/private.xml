@@ -3,22 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/auth/register.blade.php</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_user/update.blade.php</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_user/create.blade.php</file>
-            <file>file:/C:/xampp/htdocs/bank/config/app.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/AuthAdmin/LoginController.php</file>
+            <file>file:/C:/xampp/htdocs/bank/config/auth.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Middleware/Authenticate.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Admin.php</file>
             <file>file:/C:/xampp/htdocs/bank/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/js/app.js</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_user/view.blade.php</file>
-            <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/DepositController.php</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_deposit/view.blade.php</file>
-            <file>file:/C:/xampp/htdocs/bank/app/Deposit.php</file>
-            <file>file:/C:/xampp/htdocs/bank/database/migrations/2014_10_12_100000_create_password_resets_table.php</file>
+            <file>file:/C:/xampp/htdocs/bank/resources/views/admin/auth/login.blade.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/Auth/RegisterController.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/User.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Kernel.php</file>
             <file>file:/C:/xampp/htdocs/bank/database/migrations/2014_10_12_000000_create_users_table.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/AdminController.php</file>
+            <file>file:/C:/xampp/htdocs/bank/database/migrations/2020_08_16_175923_create_admins_table.php</file>
             <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/AdminUserController.php</file>
-            <file>file:/C:/xampp/htdocs/bank/bootstrap/app.php</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_deposit/update.blade.php</file>
-            <file>file:/C:/xampp/htdocs/bank/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Middleware/IsAdmin.php</file>
+            <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/Auth/LoginController.php</file>
         </group>
     </open-files>
 </project-private>
