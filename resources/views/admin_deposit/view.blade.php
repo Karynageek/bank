@@ -9,6 +9,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
+                                <th scope="col">#</th>
                                 <th scope="col">ID</th>
                                 <th scope="col">Date start</th>
                                 <th scope="col">Date finish</th>
@@ -20,6 +21,7 @@
                         <tbody>
                             @foreach($deposits as $key => $value)
                                 <tr>
+                                    <td><p class="card-title">{{ $loop->index+1 }}</p></td>
                                     <td><p class="card-title">{{ $value->id }}</p></td>
                                     <td><p class="card-title">{{ $value->created_at }}</p></td>
                                     <td><p class="card-title">{{ $value->finished_at }}</p></td>
@@ -34,6 +36,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$deposits->links()}}
                 </div>
             </div>
         </div>

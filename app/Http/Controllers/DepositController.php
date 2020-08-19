@@ -17,7 +17,7 @@ class DepositController extends Controller {
 
     public function show() {
 
-        $deposits = Deposit::all();
+        $deposits = Deposit::paginate(4);
 
         return View::make('deposit.view')
                         ->with('deposits', $deposits);

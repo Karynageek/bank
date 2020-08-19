@@ -17,7 +17,7 @@ class AdminUserController extends Controller {
     }
 
     public function show() {
-        $users = User::all();
+        $users = User::paginate(4);
 
         return View::make('admin_user.view')
                         ->with('users', $users);
