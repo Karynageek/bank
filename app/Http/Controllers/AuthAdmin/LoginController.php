@@ -11,11 +11,11 @@ class LoginController extends Controller {
 
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/admin';
-    protected $redirectAfterLogout = '/admin/user/view';
+    protected $redirectTo = '/admin/user/view';
+    protected $redirectAfterLogout = '/';
 
     public function __construct() {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest')->except('logout');
     }
 
     public function showLoginForm() {

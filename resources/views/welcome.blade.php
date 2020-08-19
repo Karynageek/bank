@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('deposit-view') }}">Deposits</a>
+                    <a href="{{ route('deposit-view'}}">Deposits</a>
 
                 </div>
             </div>

@@ -8,8 +8,12 @@ use App\Deposit;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\DepositRequest;
-
+use Auth;
 class DepositController extends Controller {
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
 
     public function show() {
 
@@ -30,6 +34,7 @@ class DepositController extends Controller {
         $deposit->finished_at = $request->input('finished_at');
         $deposit->sum = $request->input('sum');
         $deposit->interest_rate = $request->input('interest_rate');
+        $deposit->user_id = Auth::user()->id;
         $deposit->save();
 
         return Redirect::to('deposit/view');

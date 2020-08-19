@@ -9,16 +9,12 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
-
+                    <br></br>
                     'You are logged in {{Auth::user()->name}} !
-                    <br></br>
-                    <a class="p-2 text-dark" href="{{route('deposit-create')}}">->Create new deposit</a>
-                    <br></br>
-                    <a class="p-2 text-dark" href="{{route('deposit-view')}}">->See my deposits</a>
                 </div>
             </div>
         </div>

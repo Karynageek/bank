@@ -11,6 +11,10 @@ use App\Http\Requests\DepositRequest;
 
 class AdminDepositController extends Controller {
 
+    public function __construct() {
+        $this->middleware('isAdmin');
+    }
+
     public function show() {
 
         $deposits = Deposit::all();
@@ -36,7 +40,8 @@ class AdminDepositController extends Controller {
 
         return Redirect::to('admin/deposit/view');
     }
-        public function destroy($id) {
+
+    public function destroy($id) {
         $deposit = Deposit::find($id);
         if ($deposit->delete()) {
             return Redirect::to('admin/deposit/view');
