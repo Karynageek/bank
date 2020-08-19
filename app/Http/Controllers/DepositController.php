@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\DepositRequest;
 use Auth;
+
 class DepositController extends Controller {
 
     public function __construct() {
@@ -17,8 +18,7 @@ class DepositController extends Controller {
 
     public function show() {
 
-        $deposits = Deposit::paginate(4);
-
+        $deposits = Deposit::where('user_id', Auth::user()->id)->paginate(5);
         return View::make('deposit.view')
                         ->with('deposits', $deposits);
     }

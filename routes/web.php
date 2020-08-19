@@ -40,6 +40,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('admin/user/edit/{id}', 'AdminUserController@edit')->name('admin-user-edit');
     Route::post('admin/user/edit/{id}', 'AdminDepositController@update')->name('form-admin-user-edit');
     Route::get('admin/user/delete/{id}', 'AdminUserController@destroy')->name('admin-user-delete');
+    Route::get('admin/user/search}', 'AdminUserController@search')->name('admin-user-search');
 
     // Manage deposit: 
     Route::get('admin/deposit/view', 'AdminDepositController@show')->name('admin-deposit-view');

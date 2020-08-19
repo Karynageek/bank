@@ -17,7 +17,7 @@ class AdminDepositController extends Controller {
 
     public function show() {
 
-        $deposits = Deposit::paginate(4);
+        $deposits = Deposit::paginate(5);
 
         return View::make('admin_deposit.view')
                         ->with('deposits', $deposits);

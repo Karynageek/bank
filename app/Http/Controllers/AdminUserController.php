@@ -9,6 +9,8 @@ use App\User;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\DB;
+
 
 class AdminUserController extends Controller {
 
@@ -17,10 +19,16 @@ class AdminUserController extends Controller {
     }
 
     public function show() {
-        $users = User::paginate(4);
+        $users = User::paginate(5);
 
         return View::make('admin_user.view')
                         ->with('users', $users);
+    }
+
+    public function search(Request $request) {
+        $search = $request->get('search');
+        $users = User::where('name', 'like', '%' . $search . '%')->paginate(5);
+        return View::make('admin_user.view', ['users' => $users]);
     }
 
     public function create() {

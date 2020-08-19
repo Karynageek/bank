@@ -19,7 +19,7 @@
                     </thead>
                     <tbody>
                         @foreach($deposits as $key => $value)
-                        @if($value->user_id==Auth::user()->id)
+     
                         <tr>
                             <td><p class="card-title">{{ $loop->index+1 }}</p></td>
                             <td><p class="card-title">{{ $value->id }}</p></td>
@@ -30,7 +30,7 @@
                             @if ($value->interest_rate == 2)<td><p class="card-title">9</p></td>@endif
                             <td><p class="card-title">{{ $value->sum }}</p></td>
                         </tr>
-                        @endif
+     
                         @endforeach
                     </tbody>
                 </table>
