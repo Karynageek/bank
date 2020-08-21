@@ -16,6 +16,7 @@
                                 <th scope="col">Interest rate, %</th>
                                 <th scope="col">Sum, $</th>
                                 <th scope="col">User id</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,6 +31,8 @@
                                     @if ($value->interest_rate == 2)<td><p class="card-title">9</p></td>@endif
                                     <td><p class="card-title">{{ $value->sum }}</p></td>
                                     <td><p class="card-title">{{ $value->user_id }}</p></td>
+                                    @if ($value->status == 1)<td><p class="card-title">Open</p></td>@endif
+                                    @if ($value->status == 0)<td><p class="card-title">Close</p></td>@endif
                                     <td><a href="{{route('admin-deposit-edit', $value->id) }}" class="btn btn-primary">Edit</a></td>
                                     <td><a href="{{route('admin-deposit-delete', $value->id) }}" class="btn btn-danger">Delete</a></td>
                                 </tr>

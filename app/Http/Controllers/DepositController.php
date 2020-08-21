@@ -18,7 +18,8 @@ class DepositController extends Controller {
 
     public function show() {
 
-        $deposits = Deposit::where('user_id', Auth::user()->id)->paginate(5);
+        $deposits = Deposit::where('user_id', Auth::user()->id)
+                ->where('status', 2)->paginate(5);
         return View::make('deposit.view')
                         ->with('deposits', $deposits);
     }

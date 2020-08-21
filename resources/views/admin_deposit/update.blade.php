@@ -14,10 +14,10 @@
                 <form action="{{route('form-admin-deposit-edit', $deposit->id)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <p>Date start</p>
-                    <input type="text" name="created_at" required="" value="{{$deposit->created_at}}">
+                    <input type="data" name="created_at" required="" value="{{$deposit->created_at}}">
                     
                     <p>Date finish</p>
-                    <input type="text" @error('finished_at') is-invalid @enderror" name="finished_at" required="" value="{{$deposit->finished_at}}">
+                    <input type="data" @error('finished_at') is-invalid @enderror" name="finished_at" required="" value="{{$deposit->finished_at}}">
                     @error('finished_at')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
