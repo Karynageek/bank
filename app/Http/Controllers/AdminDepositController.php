@@ -48,4 +48,15 @@ class AdminDepositController extends Controller {
         }
     }
 
+    public function runAccruals() {
+        $deposits = Deposit::where('status', 2)->get();
+        $profit = 0;
+        foreach ($deposits as $deposit) {
+            $interest_rate = Deposit::where('id', $deposit->id)->first();
+            $sum = Deposit::where('id', $deposit->id)->first();
+            $profit = $sum->sum * $interest_rate->interest_rate / 100;
+            Deposit::where('id', $deposit->id)->update(['profit' => $profit]);
+        }
+    }
+
 }

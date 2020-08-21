@@ -47,6 +47,7 @@ Route::group(['middleware' => ['isAdmin']], function() {
     Route::get('admin/deposit/edit/{id}', 'AdminDepositController@edit')->name('admin-deposit-edit');
     Route::post('admin/deposit/edit/{id}', 'AdminDepositController@update')->name('form-admin-deposit-edit');
     Route::get('admin/deposit/delete/{id}', 'AdminDepositController@destroy')->name('admin-deposit-delete');
+    Route::get('admin/deposit/run', 'AdminDepositController@runAccruals')->name('admin-deposit-run');
 
     //Main admin page
     Route::get('/admin', 'AdminController@index');

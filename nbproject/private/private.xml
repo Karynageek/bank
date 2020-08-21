@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/bank/database/migrations/2020_08_15_075854_create_deposits_table.php</file>
-            <file>file:/C:/xampp/htdocs/bank/database/migrations/2020_08_20_051259_create_roles_table.php</file>
-            <file>file:/C:/xampp/htdocs/bank/database/migrations/2020_08_20_052645_table_users_table.php</file>
+            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_deposit/view.blade.php</file>
             <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/AdminDepositController.php</file>
-            <file>file:/C:/xampp/htdocs/bank/database/migrations/2014_10_12_000000_create_users_table.php</file>
             <file>file:/C:/xampp/htdocs/bank/resources/views/deposit/view.blade.php</file>
+            <file>file:/C:/xampp/htdocs/bank/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/bank/resources/views/admin_deposit/update.blade.php</file>
             <file>file:/C:/xampp/htdocs/bank/app/Http/Controllers/DepositController.php</file>
+            <file>file:/C:/xampp/htdocs/bank/resources/views/deposit/create.blade.php</file>
         </group>
     </open-files>
 </project-private>
