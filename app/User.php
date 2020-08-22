@@ -6,11 +6,16 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Account;
+use App\History;
 
-class User extends Authenticatable{
+class User extends Authenticatable {
 
     public function account() {
-        return $this->hasOne('App\Account');
+        return $this->hasOne(Account::class);
+    }
+
+    public function histories(): HasMany {
+        return $this->hasMany(History::class);
     }
 
     use Notifiable;

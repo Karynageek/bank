@@ -6,23 +6,25 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of Deposit
- *
- * @author Karina
- * 
- */
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class Deposit extends Eloquent {
+/**
+ * Description of Account
+ *
+ * @author Karina
+ */
+class Account extends Eloquent {
 
     use HistoryTransactions;
 
-    public function account() {
-        return $this->belongsTo('App\Account');
+    public function deposits() {
+        return $this->hasMany('App\Deposit');
+    }
+
+    public function user() {
+        return $this->belongsTo('App\User');
     }
 
 }
