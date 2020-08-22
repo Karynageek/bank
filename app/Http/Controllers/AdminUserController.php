@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\Account;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\DB;
-
 
 class AdminUserController extends Controller {
 
@@ -32,7 +32,6 @@ class AdminUserController extends Controller {
     }
 
     public function create() {
-
         return View::make('admin_user.create');
     }
 
@@ -42,25 +41,26 @@ class AdminUserController extends Controller {
      * @return Response
      */
     public function store(UserRequest $request) {
-
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
+        $account = new Account;
+        $account->user_id = $user->id;
+        $account->save();
+
         return Redirect::to('admin/user/view');
     }
 
     public function edit($id) {
         $user = User::find($id);
-
         return View::make('admin_user.update')
                         ->with('user', $user);
     }
 
     public function update($id, UserRequest $request) {
-
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');

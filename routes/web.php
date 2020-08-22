@@ -48,6 +48,11 @@ Route::group(['prefix' => 'user'], function() {
         Route::get('/deposit/create', 'DepositController@create')->name('deposit-create');
         Route::post('/deposit/create', 'DepositController@store')->name('form-deposit-create');
         Route::get('/deposit/view', 'DepositController@show')->name('deposit-view');
+        //History page:
+        Route::get('/account/edit/{id}', 'AccountController@edit')->name('account-refill');
+        Route::post('/account/refill/{id}', 'AccountController@refill')->name('form-account-refill');
+        Route::post('/account/withdraw/{id}', 'AccountController@withdraw')->name('form-account-withdraw');
+        Route::get('/account/view', 'AccountController@show')->name('account-history');
     });
 });
 

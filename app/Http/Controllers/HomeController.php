@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         $deposits = Deposit::all();
-        return view('user/home')->with('deposits', $deposits);
+        return view('home')->with('deposits', $deposits);
     }
 }

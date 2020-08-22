@@ -57,6 +57,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('deposit-view')}}">See my deposits</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('account-history')}}">Account history</a>
+                            </li>
                             @endif
                             @if (Auth::user()->isAdmin())
                             <li class="nav-item">

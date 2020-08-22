@@ -5,8 +5,13 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Account;
 
-class User extends Authenticatable {
+class User extends Authenticatable{
+
+    public function account() {
+        return $this->hasOne('App\Account');
+    }
 
     use Notifiable;
 
@@ -44,6 +49,7 @@ class User extends Authenticatable {
     public function isAdmin() {
         return $this->role->name == 'admin';
     }
+
     public function isUser() {
         return $this->role->name == 'user';
     }
