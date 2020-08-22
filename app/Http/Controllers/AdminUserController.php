@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class AdminUserController extends Controller {
 
     public function __construct() {
-        $this->middleware('isAdmin');
+        $this->middleware('admin');
     }
 
     public function show() {

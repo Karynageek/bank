@@ -12,7 +12,7 @@ use App\Http\Requests\DepositRequest;
 class AdminDepositController extends Controller {
 
     public function __construct() {
-        $this->middleware('isAdmin');
+        $this->middleware('admin');
     }
 
     public function show() {

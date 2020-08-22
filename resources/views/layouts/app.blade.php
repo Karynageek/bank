@@ -49,9 +49,23 @@
                             @endif
 
                             @else
-                            <a class="p-2 text-dark" href="{{route('deposit-create')}}">Create new deposit</a>
-                            <a class="p-2 text-dark" href="{{route('deposit-view')}}">See my deposits</a>
 
+                            @if (Auth::user()->isUser())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('deposit-create')}}">Create new deposit</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('deposit-view')}}">See my deposits</a>
+                            </li>
+                            @endif
+                            @if (Auth::user()->isAdmin())
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin-user-view') }}">List of Users</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin-deposit-view') }}">List of Deposits</a>
+                            </li>
+                            @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name}} <span class="caret"></span>

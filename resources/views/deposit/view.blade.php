@@ -15,6 +15,7 @@
                             <th scope="col">Date finish</th>
                             <th scope="col">Interest rate, %</th>
                             <th scope="col">Sum, $</th>
+                            <th scope="col">Profit, $</th>
                         </tr>
                     </thead>
                     <tbody>

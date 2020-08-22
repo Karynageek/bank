@@ -38,7 +38,7 @@ class DepositController extends Controller {
         $deposit->user_id = Auth::user()->id;
         $deposit->save();
 
-        return Redirect::to('deposit/view');
+        return Redirect::to('user/deposit/view');
     }
 
 }
