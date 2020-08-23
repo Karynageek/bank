@@ -15,10 +15,10 @@ class CreateHistoriesTable extends Migration {
         Schema::create('histories', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('title', 20)->nullable();
+            $table->string('title', 30)->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('account_id')->unsigned();
-            $table->bigInteger('deposit_id')->unsigned();
+            $table->string('account_type', 30)->nullable();
 
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();
@@ -32,10 +32,6 @@ class CreateHistoriesTable extends Migration {
             $table->index('account_id');
             $table->foreign('account_id')
                     ->references('id')->on('accounts');
-
-            $table->index('deposit_id');
-            $table->foreign('deposit_id')
-                    ->references('id')->on('deposits');
         });
     }
 

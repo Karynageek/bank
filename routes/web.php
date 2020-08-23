@@ -19,10 +19,9 @@ Route::get('/', function () {
 //Authorization
 Auth::routes();
 
-
 Route::group(['prefix' => 'admin'], function() {
     Route::group(['middleware' => ['auth', 'admin']], function() {
-        // Manage users:    
+        //Manage users:    
         Route::get('/user/create', 'AdminUserController@create')->name('admin-user-create');
         Route::post('/user/create', 'AdminUserController@store')->name('form-admin-user-create');
         Route::get('/user/view', 'AdminUserController@show')->name('admin-user-view');
@@ -31,7 +30,7 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/user/delete/{id}', 'AdminUserController@destroy')->name('admin-user-delete');
         Route::get('/user/search}', 'AdminUserController@search')->name('admin-user-search');
 
-        // Manage deposit: 
+        //Manage deposit: 
         Route::get('/deposit/view', 'AdminDepositController@show')->name('admin-deposit-view');
         Route::get('/deposit/edit/{id}', 'AdminDepositController@edit')->name('admin-deposit-edit');
         Route::post('/deposit/edit/{id}', 'AdminDepositController@update')->name('form-admin-deposit-edit');
@@ -44,7 +43,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::group(['middleware' => ['auth', 'user']], function() {
         //Main user page
         Route::get('/home', 'HomeController@index')->name('home');
-        // Deposit:
+        //Deposit:
         Route::get('/deposit/create', 'DepositController@create')->name('deposit-create');
         Route::post('/deposit/create', 'DepositController@store')->name('form-deposit-create');
         Route::get('/deposit/view', 'DepositController@show')->name('deposit-view');

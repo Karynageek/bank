@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Deposit;
+use App\History;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\DepositRequest;
@@ -38,6 +39,15 @@ class AdminDepositController extends Controller {
         $deposit->interest_rate = $request->input('interest_rate');
         $deposit->save();
 
+        if ($deposit->status == 0) {
+            $history = History::create([
+                        'user_id' => $deposit->user_id,
+                        'title' => strtoupper("deactivated deposit"),
+                        'sum' => $deposit->sum,
+            ]);
+        }
+
+
         return Redirect::to('admin/deposit/view');
     }
 
@@ -52,10 +62,13 @@ class AdminDepositController extends Controller {
         $deposits = Deposit::where('status', 2)->get();
         $profit = 0;
         foreach ($deposits as $deposit) {
-            $interest_rate = Deposit::where('id', $deposit->id)->first();
-            $sum = Deposit::where('id', $deposit->id)->first();
-            $profit = $sum->sum * $interest_rate->interest_rate / 100;
+            $profit = $deposit->profit + ($deposit->sum * $deposit->interest_rate / 100);
             Deposit::where('id', $deposit->id)->update(['profit' => $profit]);
+            $history = History::create([
+                        'user_id' => $deposit->user_id,
+                        'title' => strtoupper("accruals"),
+                        'sum' => $profit,
+            ]);
         }
     }
 

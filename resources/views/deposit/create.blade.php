@@ -39,9 +39,9 @@
                             @error('interest_rate') is-invalid @enderror" 
                             name="interest_rate" value="{{ old('interest_rate') }}" 
                             required="">
-                        <option value="2" selected="selected">9</option>
-                        <option value="1">7</option>
-                        <option value="0">5</option>
+                        <option value="9" selected="selected">9</option>
+                        <option value="7">7</option>
+                        <option value="5">5</option>
                     </select>
                     @error('interest_rate')
                     <span class="invalid-feedback" role="alert">

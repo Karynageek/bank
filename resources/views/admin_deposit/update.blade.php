@@ -32,9 +32,9 @@
                     @enderror
                     <p>Interest rate</p>
                     <select name="interest_rate">
-                        <option value="2" @if ($deposit->interest_rate == 9) selected="selected" @endif >9</option>
-                        <option value="1" @if ($deposit->interest_rate == 7) selected="selected" @endif >7</option>
-                        <option value="0" @if ($deposit->interest_rate == 5) selected="selected" @endif >5</option>
+                        <option value="9" @if ($deposit->interest_rate == 9) selected="selected" @endif >9</option>
+                        <option value="7" @if ($deposit->interest_rate == 7) selected="selected" @endif >7</option>
+                        <option value="5" @if ($deposit->interest_rate == 5) selected="selected" @endif >5</option>
                     </select>
 
                     <p>Status</p>

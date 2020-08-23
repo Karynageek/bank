@@ -4,37 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\AccountRequest;
-use App\Account;
-use Auth;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
+use App\Account;
+use App\History;
+use Auth;
 
 class AccountController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('user');
     }
 
     public function show() {
         $account = Account::where('user_id', Auth::user()->id)->first();
+        $histories = History::where('user_id', Auth::user()->id)
+                ->orderBy('created_at', 'desc')->paginate(5);
         return View::make('account.view')
-                        ->with('account', $account);
+                        ->with('account', $account)
+                        ->with('histories', $histories);
     }
-
-    /*
-     * DB::transaction(function () use ($request) {
-      $user = User::where('id', Auth::user()->id)->lockForUpdate()->first();
-      if ($user->balance < $request->money) {
-      throw new \Exception('Insufficient funds');
-      }
-      //Снимаем деньги со счета пользователя
-      $user->decrement('balance', $request->money);
-      //Переводим деньги другому пользователю
-      User::where('id', $request->receiver_id)->increment('balance', $request->money);
-      //Добавляем в бд запись о транзакции
-      $transaction = MoneyTransaction::create($request->all() + ['sender_id' => $user->id, 'type_id' => 2]);
-      });
-     */
 
     public function edit($id) {
         $account = Account::find($id);
@@ -47,6 +36,12 @@ class AccountController extends Controller {
         $account->balance += $request->input('balance');
         $account->save();
 
+        $history = History::create([
+                    'account_id' => $account->id,
+                    'user_id' => Auth::user()->id,
+                    'title' => strtoupper("refill"),
+                    'sum' => $request->input('balance'),
+        ]);
         return Redirect::to('user/account/view');
     }
 
@@ -55,8 +50,14 @@ class AccountController extends Controller {
         if ($account->balance >= $request->input('balance')) {
             $account->balance -= $request->input('balance');
             $account->save();
-        }
 
+            $history = History::create([
+                        'account_id' => $account->id,
+                        'user_id' => Auth::user()->id,
+                        'title' => strtoupper("withdraw"),
+                        'sum' => $request->input('balance'),
+            ]);
+        }
         return Redirect::to('user/account/view');
     }
 

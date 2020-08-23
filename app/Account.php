@@ -17,8 +17,6 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
  */
 class Account extends Eloquent {
 
-    use HistoryTransactions;
-
     public function deposits() {
         return $this->hasMany('App\Deposit');
     }

@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Deposit;
-use App\Account;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Redirect;
+use App\Deposit;
+use App\History;
+use App\Account;
 use App\Http\Requests\DepositRequest;
 use Auth;
 
 class DepositController extends Controller {
 
     public function __construct() {
-        $this->middleware('auth');
+        $this->middleware('user');
     }
 
     public function show() {
@@ -37,11 +38,17 @@ class DepositController extends Controller {
             $deposit->sum = $request->input('sum');
             $deposit->interest_rate = $request->input('interest_rate');
             $deposit->user_id = Auth::user()->id;
-
-            $account->balance -= $request->input('sum');
-
             $deposit = $account->deposits()->save($deposit);
+            
+            $account->balance -= $deposit->sum;
             $account->save();
+            
+            $history = History::create([
+                'account_id' => $account->id, 
+                'user_id'=> Auth::user()->id,
+                'title' => strtoupper("new deposit"),
+                'sum'=>$deposit->sum,
+                ]);
         }
         return Redirect::to('user/deposit/view');
     }

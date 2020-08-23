@@ -12,24 +12,27 @@
             <br></br>
             <h4>Last transactions</h4>
             </div>
-            <table class="table table-striped">
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
+                        <th scope="col">#</th>
                         <th scope="col">Operation</th>
                         <th scope="col">Date</th>
                         <th scope="col">Sum, $</th>
-                        <th scope="col">Balance, $</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($histories as $key => $value)
                     <tr>
-                        <td><p class="card-title">New deposit</p></td>
-                        <td><p class="card-title">22.12.2020</p></td>
-                        <td><p class="card-title">100</p></td>
-                        <td><p class="card-title">2828</p></td>
+                        <td><p class="card-title">{{ $value->id }}</p></td>
+                        <td><p class="card-title font-weight-bold">{{ $value->title }}</p></td>
+                        <td><p class="card-title">{{ $value->created_at }}</p></td>
+                        <td><p class="card-title">{{ $value->sum }}</p></td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
+            {{$histories->links()}}
         </div>
     </div>
     @endsection
