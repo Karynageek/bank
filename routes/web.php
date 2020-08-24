@@ -41,7 +41,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 Route::group(['prefix' => 'user'], function() {
     Route::group(['middleware' => ['auth', 'user']], function() {
-        //Main user page
+        //Main user page:
         Route::get('/home', 'HomeController@index')->name('home');
         //Deposit:
         Route::get('/deposit/create', 'DepositController@create')->name('deposit-create');
@@ -52,6 +52,12 @@ Route::group(['prefix' => 'user'], function() {
         Route::post('/account/refill/{id}', 'AccountController@refill')->name('form-account-refill');
         Route::post('/account/withdraw/{id}', 'AccountController@withdraw')->name('form-account-withdraw');
         Route::get('/account/view', 'AccountController@show')->name('account-history');
+        //Settings page:
+        Route::get('/settings/edit/{id}', 'SettingsController@edit')->name('user-settings');
+        Route::post('/settings/edit/nickname/{id}', 'SettingsController@updateNickname')->name('form-user-edit-nickname');
+        Route::post('/settings/edit/pass/{id}', 'SettingsController@updatePass')->name('form-user-edit-pass');
+        //Team page:
+        Route::get('/team/view', 'TeamController@show')->name('team-view');
     });
 });
 

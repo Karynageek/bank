@@ -15,7 +15,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
         <title>{{ config('app.name', 'Bank') }}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+        <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/1091/PNG/512/bank_78392.png" type="image/x-icon">
     </head>
     <body>
         <div id="app">
@@ -52,13 +52,19 @@
 
                             @if (Auth::user()->isUser())
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('deposit-create')}}">Create new deposit</a>
+                                <a class="nav-link" href="{{route('deposit-create')}}">Investment</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('deposit-view')}}">See my deposits</a>
+                                <a class="nav-link" href="{{route('deposit-view')}}">Deposits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('account-history')}}">Account history</a>
+                                <a class="nav-link" href="{{route('team-view')}}">Team</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('account-history')}}">History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('user-settings', Auth::user()->id)}}">Settings</a>
                             </li>
                             @endif
                             @if (Auth::user()->isAdmin())

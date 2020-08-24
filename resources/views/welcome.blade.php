@@ -10,7 +10,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="shortcut icon" href="C:\xampp\htdocs\bank\resources\img\logo.png">
+        <link rel="shortcut icon" href="https://cdn.icon-icons.com/icons2/1091/PNG/512/bank_78392.png" type="image/x-icon">
 
         <!-- Styles -->
         <style>
